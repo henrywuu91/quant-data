@@ -230,3 +230,10 @@ stock_data/
 3. **No warranty.** All data is provided **"AS IS" without warranty of any kind**, express or implied, including accuracy, completeness, timeliness, merchantability, or fitness for a particular purpose. Errors, omissions, and delays may exist. Do not use for actual trading.
 4. **Limitation of liability.** To the maximum extent permitted by applicable law, the author shall **not be liable for any direct, indirect, incidental, special, punitive, or consequential damages** (including investment losses, loss of profits, loss of data, or business interruption) arising from the use of, or inability to use, this repository. Users are solely responsible for ensuring their use complies with applicable laws and any third-party agreements.
 5. **Intellectual property & takedown.** Rights in the underlying market data belong to the respective exchanges and data providers. This repository quotes a small sample for research purposes only, with no intent to infringe. **If you believe any content infringes your rights, please open a GitHub Issue with proof of ownership, and the content will be removed promptly upon verification.**
+
+## License
+
+**Non-commercial research use only.**
+
+本仓库数据仅授权用于非商业性的学习与研究用途。任何商业用途均不被授权，详见上文 Disclaimer。
+The data in this repository is licensed for non-commercial research and educational use only. No commercial use is permitted. See the Disclaimer above for details.
