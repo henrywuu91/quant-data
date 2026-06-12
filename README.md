@@ -24,6 +24,171 @@ stock_data/
 
 数据区间：约 2016 年至今（日线）；财务数据为季度频率。
 
+## 字段说明
+
+> 金额类字段单位：行情/财务原始金额为**计价货币的元**；股本与市值字段单位为**亿**。
+> 比率类字段（利润率、ROE、换手率等）均为**小数**（0.15 = 15%）。
+
+### 日线行情 `*_kline_daily_raw.csv`（三市场通用）
+
+| 字段 | 说明 |
+|------|------|
+| country | 市场（CN / HK / US） |
+| code | 股票代码 |
+| time | 交易日（YYYY-MM-DD） |
+| open / high / low / close | 开盘 / 最高 / 最低 / 收盘价（未复权，计价货币） |
+| volume | 成交量（股） |
+| amount | 成交额（计价货币） |
+
+### 日线扩展 `*_kline_daily_ext.csv`（三市场通用）
+
+| 字段 | 说明 |
+|------|------|
+| country / code / time | 同上 |
+| total_shares | 总股本（亿股） |
+| float_shares | 流通股本（亿股） |
+| total_market_cap | 总市值（亿，计价货币） |
+| float_market_cap | 流通市值（亿，计价货币） |
+| adj_factor | 复权因子（以最新交易日为基准 1.0） |
+| turnover_rate | 换手率（小数） |
+
+### 财务表公共字段（所有 `*_finance_*.csv`）
+
+| 字段 | 说明 |
+|------|------|
+| country / code | 市场 / 股票代码 |
+| symbol | 股票标识 |
+| fiscal_year | 财年 |
+| period | 报告期（Q1–Q4） |
+| report_date | 报告期截止日 |
+| reported_currency | 报告币种（raw 表） |
+| release_date | 财报发布日（ext 表） |
+
+### A股财务报表 `stock_data/cn/*_finance_raw.csv`
+
+利润表：
+
+| 字段 | 说明 |
+|------|------|
+| revenue | 营业总收入 |
+| total_operating_cost | 营业总成本 |
+| cost_of_revenue | 营业成本 |
+| taxes_and_surcharges | 税金及附加 |
+| selling_expense / admin_expense / finance_expense | 销售 / 管理 / 财务费用 |
+| operating_profit | 营业利润 |
+| non_operating_income / non_operating_expense | 营业外收入 / 支出 |
+| income_tax | 所得税费用 |
+| net_income_attr_parent | 归母净利润 |
+
+资产负债表：
+
+| 字段 | 说明 |
+|------|------|
+| total_shares | 总股本 |
+| capital_reserve / surplus_reserve / retained_earnings | 资本公积 / 盈余公积 / 未分配利润 |
+| cash_equivalents | 货币资金 |
+| accounts_receivable / other_receivables / receivables_and_notes | 应收账款 / 其他应收款 / 应收票据及应收账款 |
+| prepayments | 预付款项 |
+| inventories | 存货 |
+| current_assets / non_current_assets | 流动 / 非流动资产 |
+| fixed_assets / fixed_assets_total | 固定资产 / 固定资产合计 |
+| intangible_assets | 无形资产 |
+| deferred_tax_assets | 递延所得税资产 |
+| accounts_payable / other_payables / notes_and_accounts_payable | 应付账款 / 其他应付款 / 应付票据及应付账款 |
+| payroll_payable | 应付职工薪酬 |
+| taxes_payable | 应交税费 |
+| current_liabilities / non_current_liabilities | 流动 / 非流动负债 |
+| equity_attr_parent / total_equity | 归母股东权益 / 股东权益合计 |
+
+现金流量表：
+
+| 字段 | 说明 |
+|------|------|
+| cash_from_sales | 销售商品、提供劳务收到的现金 |
+| cash_from_other_operating | 收到其他与经营活动有关的现金 |
+| cash_paid_goods | 购买商品、接受劳务支付的现金 |
+| cash_paid_employees | 支付给职工以及为职工支付的现金 |
+| cash_paid_taxes | 支付的各项税费 |
+| cash_paid_other_operating | 支付其他与经营活动有关的现金 |
+| operating_cash_flow / investing_cash_flow / financing_cash_flow | 经营 / 投资 / 筹资活动现金流净额 |
+| capital_expenditure | 资本开支 |
+| net_change_in_cash | 现金及等价物净增加额 |
+| cash_end_period | 期末现金余额 |
+
+### 港股财务报表 `stock_data/hk/*_finance_raw.csv`
+
+| 字段 | 说明 |
+|------|------|
+| revenue | 营业收入 |
+| gross_profit | 毛利 |
+| operating_profit | 经营溢利 |
+| pretax_income | 税前利润 |
+| net_income | 净利润 |
+| admin_expense | 行政开支 |
+| other_income | 其他收入 |
+| interest_expense | 利息支出 |
+| income_tax | 所得税 |
+| comprehensive_income | 综合收益总额 |
+| basic_eps | 基本每股收益 |
+| operating_cash_flow / investing_cash_flow / financing_cash_flow | 经营 / 投资 / 筹资活动现金流净额 |
+| cash_equivalents | 现金及现金等价物 |
+| total_assets / net_assets | 总资产 / 净资产 |
+| current_assets / fixed_assets | 流动资产 / 固定资产 |
+| total_liabilities / current_liabilities | 总负债 / 流动负债 |
+| share_capital | 股本 |
+
+### 美股财务报表 `stock_data/us/*_finance_raw.csv`
+
+| 字段 | 说明 |
+|------|------|
+| revenue | 营业收入 |
+| cost_of_revenue | 营业成本 |
+| sga_expense | 销售及管理费用（SG&A） |
+| operating_expense | 营业费用 |
+| ebit | 息税前利润（EBIT） |
+| depreciation_amortization | 折旧与摊销 |
+| net_interest_income | 净利息收入 |
+| pretax_income | 税前利润 |
+| net_income | 净利润 |
+| shares_basic / shares_diluted | 基本 / 稀释加权股数 |
+| cash_equivalents / short_term_investments | 现金及等价物 / 短期投资 |
+| current_assets / non_current_assets | 流动 / 非流动资产 |
+| ppe_net | 固定资产净值（PP&E, Net） |
+| current_liabilities / non_current_liabilities | 流动 / 非流动负债 |
+| common_stock | 普通股股本 |
+| retained_earnings | 留存收益 |
+| shareholders_equity | 股东权益 |
+| working_capital_change / other_working_capital | 营运资本变动 / 其他营运资本 |
+| other_non_cash_items | 其他非现金项目 |
+| operating_cash_flow / investing_cash_flow / financing_cash_flow | 经营 / 投资 / 筹资活动现金流净额 |
+| net_change_in_cash | 现金净变动 |
+| cash_begin_period | 期初现金余额 |
+| capital_expenditure | 资本开支 |
+
+### 财务衍生指标 `*_finance_ext.csv`
+
+| 字段 | 说明 | 适用市场 |
+|------|------|----------|
+| gross_margin | 毛利率 | 全部 |
+| operating_margin | 营业利润率 | 全部 |
+| net_margin | 净利率 | 全部 |
+| roe / roa | 净资产收益率 / 总资产收益率 | 全部 |
+| current_ratio | 流动比率 | 全部 |
+| debt_to_equity | 产权比率（负债/权益） | 全部 |
+| debt_to_assets | 资产负债率 | 全部 |
+| ocf_to_revenue | 经营现金流 / 营收 | 全部 |
+| fcf_margin | 自由现金流利润率 | CN / US |
+| accrual_ratio | 应计比率 | 全部 |
+| revenue_yoy / revenue_qoq | 营收同比 / 环比 | 全部 |
+| net_income_yoy / net_income_qoq | 净利润同比 / 环比 | 全部 |
+| eps_yoy | EPS 同比 | CN / US |
+| revenue_ttm / net_income_ttm | 营收 / 净利润 TTM（滚动 12 个月） | 全部 |
+| eps_ttm | EPS TTM | CN / US |
+| net_margin_ttm / roe_ttm | 净利率 / ROE TTM | 全部 |
+| revenue_ttm_yoy / net_income_ttm_yoy | 营收 / 净利润 TTM 同比 | 全部 |
+| eps_basic | 基本每股收益 | CN / US |
+| eps_surprise / eps_surprise_pct | EPS 超预期值 / 超预期幅度 | 仅 US |
+
 ## Disclaimer / 免责声明
 
 **使用本仓库即表示您已阅读、理解并同意以下全部条款。如不同意，请勿使用本仓库的任何内容。**
