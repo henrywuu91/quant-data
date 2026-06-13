@@ -4,13 +4,13 @@
 
 ## 数据说明
 
-仅供量化学习与研究使用的样本数据集，覆盖三个市场、每市场 10 只股票：
+仅供量化学习与研究使用的样本数据集，覆盖三个市场、每市场 50 只股票（按市值与流动性选取的代表性研究样本，非全市场覆盖）：
 
 ```
 stock_data/
-├── cn/   # A股样本（10 只）
-├── hk/   # 港股样本（10 只）
-└── us/   # 美股样本（10 只）
+├── cn/   # A股样本（50 只）
+├── hk/   # 港股样本（50 只）
+└── us/   # 美股样本（50 只）
 ```
 
 每只股票包含 4 个 CSV 文件：
@@ -195,7 +195,7 @@ stock_data/
 
 ### 1. 用途限定
 
-- 本仓库数据**仅为量化学习、学术研究与技术演示目的提供的小规模样本数据**（每市场仅 10 只股票），不构成完整数据集，不具备生产可用性。
+- 本仓库数据**仅为量化学习、学术研究与技术演示目的提供的样本数据**（每市场 50 只代表性股票，非全市场覆盖），不构成完整数据集，不具备生产可用性。
 - 本仓库**不是数据服务**：不承诺数据更新频率，不承诺数据持续可用，仓库内容可能随时修改或删除，恕不另行通知。
 - **严禁将本仓库数据用于任何商业用途**，包括但不限于：转售、商业再分发、集成至商业产品或服务、提供商业数据接口、用于商业模型训练等。
 
@@ -225,7 +225,7 @@ stock_data/
 
 **By using this repository, you acknowledge that you have read, understood, and agreed to all terms below. If you do not agree, do not use any content of this repository.**
 
-1. **Limited purpose.** This repository provides a small sample dataset (10 stocks per market) **solely for quantitative learning, academic research, and technical demonstration**. It is not a complete dataset, not production-ready, and not a data service. Content may be modified or removed at any time without notice. **Any commercial use is strictly prohibited**, including resale, redistribution, integration into commercial products or services, commercial data APIs, or commercial model training.
+1. **Limited purpose.** This repository provides a sample dataset (50 representative stocks per market, not full-market coverage) **solely for quantitative learning, academic research, and technical demonstration**. It is not a complete dataset, not production-ready, and not a data service. Content may be modified or removed at any time without notice. **Any commercial use is strictly prohibited**, including resale, redistribution, integration into commercial products or services, commercial data APIs, or commercial model training.
 2. **No investment advice.** Nothing in this repository constitutes investment, financial, trading, or any other professional advice, nor an offer or solicitation to buy or sell any security. Past performance is not indicative of future results. **Any decision made based on this repository is solely at the user's own risk.**
 3. **No warranty.** All data is provided **"AS IS" without warranty of any kind**, express or implied, including accuracy, completeness, timeliness, merchantability, or fitness for a particular purpose. Errors, omissions, and delays may exist. Do not use for actual trading.
 4. **Limitation of liability.** To the maximum extent permitted by applicable law, the author shall **not be liable for any direct, indirect, incidental, special, punitive, or consequential damages** (including investment losses, loss of profits, loss of data, or business interruption) arising from the use of, or inability to use, this repository. Users are solely responsible for ensuring their use complies with applicable laws and any third-party agreements.
